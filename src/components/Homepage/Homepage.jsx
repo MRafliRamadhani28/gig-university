@@ -1,7 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 function Homepage() {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
   const settings = {
     dots: false,
     infinite: false,
@@ -16,7 +24,11 @@ function Homepage() {
     fade: true,
     infinite: true,
     autoplay: true,
-    appendDots: (dots) => <ul>{dots}</ul>,
+    appendDots: (dots) => (
+      <div className="slick-navigation">
+        <ul>{dots}</ul>
+      </div>
+    ),
     slidesToShow: 1,
     slidesToScroll: 1,
   };
@@ -187,6 +199,7 @@ function Homepage() {
                 <button
                   type="button"
                   className="btn btn-outline-primary-custom"
+                  onClick={handleLogin}
                 >
                   Login
                 </button>
@@ -773,9 +786,13 @@ function Homepage() {
           <div className="row navigation">
             <div className="col-md-6 offset-md-6">
               <div className="d-flex slide-testimonial-arrow align-items-center justify-content-center mb-4">
-                <i className="slick-prev fas fa-angle-left position-relative"></i>
+                <i className="slick-prev position-relative">
+                  <FontAwesomeIcon icon={["fas", "fa-angle-left"]} />
+                </i>
                 <div className="slick-navigation"></div>
-                <i className="slick-next fas fa-angle-right position-relative"></i>
+                <i className="slick-next position-relative">
+                  <FontAwesomeIcon icon={["fas", "fa-angle-right"]} />
+                </i>
               </div>
 
               <a href="/" className="btn-secondary-purple">

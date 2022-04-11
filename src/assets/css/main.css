@@ -1336,7 +1336,7 @@ section.recomend-for-you {
 }
 
 .form-account .input-group-prepend span {
-  line-height: 29px;
+  line-height: 32px;
   background: none;
   border-right: none;
 }
@@ -2375,8 +2375,7 @@ section.recomend-for-you {
   position: relative;
   padding-top: 3rem
 }
-.explore-course:before,
-.newest-course:before {
+.explore-course:before {
   content: "";
   background: #F7EEFF;
   height: 70%;
@@ -2417,9 +2416,9 @@ section.recomend-for-you {
   left: auto;
 }
 
-/* .slider-single-item .slick-arrow {
+.slider-single-item .slick-arrow {
   display: none !important;
-} */
+}
 .content-testimonial .container-fluid {
   position: relative;
 }

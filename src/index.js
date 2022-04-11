@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick.js";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fontsource/plus-jakarta-sans";
+// import '@fortawesome/react-fontawesome';
+import "./assets/font/fontawesome.js";
 import "./assets/css/main.css";
 import "./assets/css/mobile.css";
 import App from "./App";
