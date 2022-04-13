@@ -5,6 +5,7 @@ import "./assets/css/mobile.css";
 import HomePage from "./components/Homepage/Homepage";
 import Login from "./components/Login/Login";
 import LoginbyEmail from "./components/Login/LoginbyEmail";
+import ForgotPassword from "./components/Login/ForgotPassword";
 // import "./assets/css/bootstrap-datepicker.min.css";
 // import "./assets/css/profile.css";
 
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/home" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/loginbyemail" element={<LoginbyEmail />} />
+          <Route path="/forgot" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </>
