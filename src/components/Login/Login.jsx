@@ -1,7 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGoogleLogin, useGoogleLogout } from "react-google-login";
+import { refreshTokenSetup } from "../../refreshToken";
+import axios from "axios";
+
+const clientId =
+  "258290933347-1ha8p5hrple2ldjeru4btgbeo9cgtepq.apps.googleusercontent.com";
 
 function Login() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    retrieveData();
+  }, []);
+
+  function retrieveData() {
+    axios
+      .get("http://localhost:4000/book")
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch(function (error) {
+        console.error();
+      });
+  }
+
+  const onLogoutSuccess = (res) => {
+    alert("Logged Out Successfully!");
+  };
+  const onSuccess = (res) => {
+    console.log("Login Success: currentUser:", res.profileObj);
+    refreshTokenSetup(res);
+  };
+
+  const onFailure = (res) => {
+    console.log("Login failed: res:", res);
+  };
+
+  const { signIn } = useGoogleLogin({
+    onLogoutSuccess,
+    onFailure,
+    clientId,
+    isSignedIn: true,
+    accessType: "offline",
+  });
+
+  const { signOut } = useGoogleLogout({
+    onSuccess,
+    onFailure,
+    clientId,
+    isSignedIn: true,
+    accessType: "offline",
+  });
+
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -52,9 +103,15 @@ function Login() {
                       >
                         <img src="assets/img/ic-email.svg" alt="" /> Email
                       </a>
-                      <a href="/" className="btn btn-outline-grey">
+                      <button onClick={signIn} className="btn btn-outline-grey">
                         <img src="assets/img/ic-google.svg" alt="" /> Google
-                      </a>
+                      </button>
+                      <button
+                        onClick={signOut}
+                        className="btn btn-outline-grey"
+                      >
+                        <img src="assets/img/ic-google.svg" alt="" /> Logout
+                      </button>
                     </div>
                     <p className="text-center">
                       By tapping "login" you agree to our{" "}

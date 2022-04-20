@@ -134,12 +134,12 @@ function Homepage() {
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        <img src="assets/img/Training.png" alt="" /> Training
+                        <img src="assets/img/training.png" alt="" /> Training
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        <img src="assets/img/Career.png" alt="" /> Career
+                        <img src="assets/img/career.png" alt="" /> Career
                       </a>
                     </li>
                     <li>
@@ -149,12 +149,12 @@ function Homepage() {
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        <img src="assets/img/Event.png" alt="" /> Event
+                        <img src="assets/img/event.png" alt="" /> Event
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item" href="/#">
-                        <img src="assets/img/Space.png" alt="" /> Space
+                        <img src="assets/img/space.png" alt="" /> Space
                       </a>
                     </li>
                     <li>
